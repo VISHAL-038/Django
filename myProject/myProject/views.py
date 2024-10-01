@@ -9,6 +9,7 @@ def homePage(request):
         'title':'Home Page !',
         'message':'Welcome to my home page',
         'clist':['PHP','Java','Django'],
+        'numbers':[10,20,30,40,50],
         'student_details':[
             {'name':'person_1','phone':123456789},
             {'name':'person_2','phone':987654321},
