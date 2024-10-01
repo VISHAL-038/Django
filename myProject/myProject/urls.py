@@ -21,4 +21,7 @@ from myProject import views
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('about-us/', views.aboutUS),
+    path('', views.homePage),
+    path('course/', views.Courses),
+    path('course/<courseid>', views.courseDetails),
 ]
