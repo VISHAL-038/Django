@@ -1,52 +1,95 @@
-<html>
-    <head>
-        <title>{{title}}</title>
-        <style>
-            .main{
-                width:100px;
-                background-color : red;
-            }
-        </style>
-    </head>
-    <body>
-      <div class="main">Hello</div>
-        {{message}}
-        {{clist}}
-        {% for i in clist %}
-        <div style="background-color:grey">
-            {{forloop.counter}}
-            {{i}}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Website</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Adventure Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Explore the World with Us!</h2>
+        <p>Join us for thrilling adventures, from hiking mountains to diving in deep oceans.</p>
+        <br>
+        <button onclick="scrollToGallery()">See Our Adventures</button>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="{% static 'img/Adventure.jpg' %}" alt="Adventure" />
         </div>
-        {% endfor%}
+        <div class="about-content">
+            <h2>Why Choose Us?</h2>
+            <p>We provide once-in-a-lifetime experiences, ensuring safety, fun, and adventure for everyone!</p>
+        </div>
+    </section>
+    
 
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Popular Services</h2>
+        <div class="services-list">
+            <div class="service-item">
+                <img src="/static/img/mountain-hike.webp" alt="Hiking">
+                <h3>Mountain Hiking</h3>
+                <p>Explore the highest peaks with expert guides.</p>
+            </div>
+            <div class="service-item">
+                <img src="/static/img/scuba-diving.jpg"
+                alt="scuba Diving">
+                <h3>Scuba Diving</h3>
+                <p>Dive into the deep blue sea and discover underwater worlds.</p>
+            </div>
+            <div class="service-item">
+                <img src="/static/img/camping-trips.jpg" alt="Camping">
+                <h3>Camping Trips</h3>
+                <p>Reconnect with nature on our unique camping trips.</p>
+            </div>
+        </div>
+    </section>
 
-        <br>
-        <table border="1" cellpadding="10px">
-            <tr>
-                <th>Name</th>
-                <th>Phone no</th>
-            </tr>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"The best adventure I've ever had! I can't wait to go on another trip with this team." – Sarah K.</p>
+        </div>
+        <div class="testimonial">
+            <p>"Safe, fun, and exciting! A truly unforgettable experience." – James B.</p>
+        </div>
+        <div class="testimonial">
+            <p>"Highly recommend their services! They are experts in their field." – Emma L.</p>
+        </div>
+    </section>
 
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2>Adventure Gallery</h2>
+        <div class="gallery-container">
+            <img src="/static/img/adventure-1.jpg" alt="Adventure 1" class="gallery-image">
+            <img src="/static/img/adventure-2.jpeg" alt="Adventure 2" class="gallery-image">
+            <img src="/static/img/adventure-3.webp" alt="Adventure 3" class="gallery-image">
+        </div>
+    </section>
 
-            {% for d in student_details %}
-            <tr>
-                <td>{{d.name}}</td>
-                <td>{{d.phone}}</td>
-            </tr>
-            {% endfor %}
-
-        </table>
-
-        <br>
-
-        {% if numbers|length > 0 %}
-            {% for n in numbers%}
-                {% if n > 20%}
-                    <div>{{n}}</div>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            <p>No numbers</p>
-        {% endif %}
-    </body>
+    <footer>
+        <p>&copy; 2024 Adventure Website | Follow us on <a href="#">Instagram</a></p>
+    </footer>
+</body>
 </html>
