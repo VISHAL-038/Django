@@ -1,8 +1,20 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+# def homePage(request):
+#     return render(request,'index.html')
+
 def homePage(request):
-    return render(request,'index.html')
+    data={
+        'title':'Home Page !',
+        'message':'Welcome to my home page',
+        'clist':['PHP','Java','Django'],
+        'student_details':[
+            {'name':'person_1','phone':123456789},
+            {'name':'person_2','phone':987654321},
+        ]
+    } 
+    return render(request,'index.html',data)
 
 def aboutUS(request):
     return HttpResponse("Welcome to Django Python")

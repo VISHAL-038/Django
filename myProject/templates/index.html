@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Home Page</title>
+        <title>{{title}}</title>
         <style>
             .main{
                 width:100px;
@@ -10,6 +10,31 @@
     </head>
     <body>
       <div class="main">Hello</div>
-        Welcome to Django Tutorial
+        {{message}}
+        {{clist}}
+        {% for i in clist %}
+        <div style="background-color:grey">
+            {{forloop.counter}}
+            {{i}}
+        </div>
+        {% endfor%}
+
+
+        <br>
+        <table border="1" cellpadding="10px">
+            <tr>
+                <th>Name</th>
+                <th>Phone no</th>
+            </tr>
+
+
+            {% for d in student_details %}
+            <tr>
+                <td>{{d.name}}</td>
+                <td>{{d.phone}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
     </body>
 </html>
