@@ -10,13 +10,28 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to the Adventure Website</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="top-header">
+            <div class="site-info">
+                <h1>Adventure </h1>
+                <p class="tagline">Discover your next great adventure!</p>
+            </div>
+    <br>
+            <!-- Navigation Section -->
+            <nav>
+                <ul>
+                    <li class="{% if request.path == '/'  %} active {% endif %}"><a href="/">Home</a></li>
+                    <li class="{% if request.path == '/aboutus/'  %} active {% endif %}"><a href="/aboutus">About Us</a></li>
+                    <li class="{% if request.path == '/services/'  %} active {% endif %}"><a href="{% url 'services' %}">Services</a></li>
+                    <li class="{% if request.path == '/contact/'  %} active {% endif %}"><a href="/contact">Contact</a></li>
+                    <li ><a href="/book" class="cta-button">Book Now</a></li> <!-- Call-to-action button -->
+                </ul>
+            </nav>
+        </div>
+    
+        <!-- Website Name and Tagline Section (Centered Below) -->
+        
     </header>
+    
+    
+    
+    
