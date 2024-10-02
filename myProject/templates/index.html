@@ -1,27 +1,8 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Website</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <script src="/static/js/script.js" defer></script>
-</head>
-<body>
-    <header>
-        <h1>Welcome to the Adventure Website</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
+{% block content %}
+<!-- Hero Section -->
     <section class="hero">
         <h2>Explore the World with Us!</h2>
         <p>Join us for thrilling adventures, from hiking mountains to diving in deep oceans.</p>
@@ -88,8 +69,6 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Adventure Website | Follow us on <a href="#">Instagram</a></p>
-    </footer>
 </body>
 </html>
+{% endblock  %}

@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <script src="/static/js/script.js" defer></script>
-</head>
-<body>
-    <header>
-        <h1>About Us</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    {% extends "base.html" %}
+
+
+    {% block content %}
+    
+
     
     <section class="about-us-section">
         <div class="about-us-content">
@@ -36,8 +22,7 @@
         <p>Our mission is to bring adventure to everyone while ensuring safety and sustainability. Whether it's hiking, diving, or camping, we tailor every experience to be thrilling yet safe for all participants.</p>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Adventure Website | All rights reserved</p>
-    </footer>
 </body>
 </html>
+
+{% endblock  %}
