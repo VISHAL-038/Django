@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+
+        <section class="user-form-section">
+            <h2>User Registration</h2>
+            <p>Please fill out the form below to create an account.</p>
+
+            <form class="user-form"  method="post">
+                {% csrf_token %} 
+                <label for="firstname">Value1:</label>
+                <input type="text" id="firstname" name="num1" placeholder="Enter your first name" required>
+
+                <label for="firstname">value2:</label>
+                <input type="text" id="firstname" name="num2" placeholder="Enter your first name" required>
+
+                <button type="submit" class="cta-button">Save</button>
+                <br>
+                Output
+                <input type="text" value="{{output}}"/>
+            </form>
+        </section>
+        <main>
+</body>
+</html>
+
+{% endblock content %}
