@@ -131,6 +131,55 @@ def calculator(request):
      print(c)
      return render(request,'calculator.html',{'c':c})
 
+def evenodd(request):
+     c=''
+     try:
+          if request.method=="POST":
+               if request.POST.get('num1')=="":
+                    return render(request,'evenodd.html',{'error':True})
+               n1 = eval(request.POST.get('num1'))
+               if n1%2==0:
+                    c="even number"
+               else:
+                    c="odd number"
+     except:
+          c="Invalid entry...."
+     return render(request,'evenodd.html',{'c':c})
+
+def marksheet(request):
+     total = 0
+     percentage = 0
+     grade = ''
+     data={}
+     try:
+          if request.method=="POST":
+               m1 = eval(request.POST.get('num1'))
+               m2 = eval(request.POST.get('num1'))
+               m3 = eval(request.POST.get('num1'))
+               m4 = eval(request.POST.get('num1'))
+               m5 = eval(request.POST.get('num1'))
+               total = m1+m2+m3+m4+m5
+               percentage = (total/500)*100
+               if percentage>=90:
+                    grade='A'
+               elif percentage>=80:
+                    grade='B'
+               elif percentage>=70:
+                    grade='C'
+               elif percentage>=60:
+                    grade='D'
+               else:
+                    grade='F'
+               data = {
+                    'total':total,
+                    'percentage':percentage,
+                    'grade':grade
+               }
+               print(grade)
+     except:
+          pass
+     return render(request,'marksheet.html',data)
+
 
 # def Courses(request):
 #     return HttpResponse("Welcome to Django Python Courses")

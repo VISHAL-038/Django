@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+
+        <section class="user-form-section">
+            <h2>Even and Odd Checker</h2>
+            <p>Learn and check even and odd number 
+                even = that are divisible by 2 (0,2,4,6,8....)
+                odd = that are divisible by 2(1,3,5,7,9....)
+            </p>
+
+            <form class="user-form"  method="post">
+                {% if error %}
+                    <div class="alert" role="alert" style="color:red">
+                        Please enter the value
+                    </div>
+                {% endif %}
+                {% csrf_token %}
+
+                <label>Value 1</label>
+                <input type="text" name="num1"/>
+                
+
+                <button type="submit" >Even | ODD</button>
+                <br>
+
+                <label>Output<label>
+                    <input type="text" name="output" value={{c}}/>
+            </form>
+        </section>
+        <main>
+</body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+
+        <section class="user-form-section">
+            <h2>Marksheet</h2>
+            <p>Get Your Student overall result</p>
+
+            <form class="user-form"  method="post">
+                {% csrf_token %}
+
+                <label>Subject 1</label>
+                <input type="text" name="num1"/>
+
+                <label>Subject 2</label>
+                <input type="text" name="num2"/>
+
+                <label>Subject 3</label>
+                <input type="text" name="num3"/>
+
+                <label>Subject 4</label>
+                <input type="text" name="num4"/>
+
+                <label>Subject 5</label>
+                <input type="text" name="num5"/>
+                
+
+                <button type="submit" >Marksheet</button>
+                <br>
+                <label>Total</label>
+                    <input type="text" name="output1" value={{total}}/>
+                <label>Percentage</label>
+                    <input type="text" name="output2" value={{percentage}}/>
+                <label>Division</label>
+                    <input type="text" name="output3" value={{grade}}/>
+            </form>
+        </section>
+        <main>
+</body>
+</html>
+
+{% endblock content %}
