@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect 
 from django.shortcuts import render
+from .forms import userForms 
+# from .forms import <name of the function created in the page forms.py>
 
 def indexPage(request):
     return render(request,'index.html')
@@ -36,20 +38,39 @@ def book(request):
      return render(request,'book.html')
 
 
+# def userform(request):
+#      finalans= 0
+#      data={}
+#      try:
+#           # n1 = int(request.GET['num1'])
+#           # n2 = int(request.GET['num2'])
+#           n1 = request.GET.get('num1')
+#           n2 = request.GET.get('num2')
+#           finalans=n1+n2
+#           data = {
+#                'n1':n1,
+#                'n2':n2,
+#                'output':finalans
+#           }
+#      except:
+#           pass
+#      return render(request,'userform.html',data)
+
 def userform(request):
-     finalans= 0
-     data={}
+     finalans = 0
+     fn = userForms()
+     data={'form':fn}
      try:
-          # n1 = int(request.GET['num1'])
-          # n2 = int(request.GET['num2'])
-          n1 = request.GET.get('num1')
-          n2 = request.GET.get('num2')
-          finalans=n1+n2
-          data = {
-               'n1':n1,
-               'n2':n2,
-               'output':finalans
-          }
+          if request.method=="POST":
+               n1 = request.POST.get('num1')
+               n2 = request.POST.get('num2')
+               finalans = n1+n2
+               data={
+                    'form':fn,
+                    'output':finalans,
+               }
+               url ="/aboutus/?output={}".format(finalans)
+               return HttpResponseRedirect(url)
      except:
           pass
      return render(request,'userform.html',data)
@@ -66,6 +87,26 @@ def formuser(request):
      except:
           pass
      return render(request,'formuser.html',{'output':finalans})
+
+def submitform(request):
+     # return HttpResponse(request)
+     # return render(request,'submit.html')
+     finalans= 0
+     data={}
+     try:
+          # n1 = int(request.GET['num1'])
+          # n2 = int(request.GET['num2'])
+          n1 = request.GET.get('num1')
+          n2 = request.GET.get('num2')
+          finalans=n1+n2
+          data = {
+               'n1':n1,
+               'n2':n2,
+               'output':finalans
+          }
+     except:
+          pass
+     return render(request,'submit.html',data)
 
 
 

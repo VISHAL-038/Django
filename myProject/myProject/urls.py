@@ -26,6 +26,7 @@ urlpatterns = [
     path('book/', views.book,name="book"),
     path('userform/', views.userform,name="userform"),
     path('formuser/', views.formuser,name="formuser"),
+    path('submitform/', views.submitform,name="submitform"),
     path('', views.indexPage),
     # path('course/', views.Courses),
     # path('course/<courseid>', views.courseDetails),

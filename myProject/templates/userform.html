@@ -6,13 +6,16 @@
         <section class="user-form-section">
             <h2>User Registration</h2>
             <p>Please fill out the form below to create an account.</p>
+            
+            <form class="user-form"  method="post" action="{% url 'submitform' %}">
+                {% csrf_token %}
 
-            <form class="user-form"  method="get">
-                <label for="firstname">Value1:</label>
+                {{form}}
+                {% comment %} <label for="firstname">Value1:</label>
                 <input type="text" id="firstname" name="num1" placeholder="Enter your first name" required>
 
                 <label for="firstname">value2:</label>
-                <input type="text" id="firstname" name="num2" placeholder="Enter your first name" required>
+                <input type="text" id="firstname" name="num2" placeholder="Enter your first name" required> {% endcomment %}
 
                 {% comment %} <label for="lastname">Last Name:</label>
                 <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
