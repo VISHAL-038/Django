@@ -28,6 +28,7 @@ urlpatterns = [
     path('formuser/', views.formuser,name="formuser"),
     path('submitform/', views.submitform,name="submitform"),
     path('', views.indexPage),
+    path('calculator/', views.calculator),
     # path('course/', views.Courses),
     # path('course/<courseid>', views.courseDetails),
 ]
