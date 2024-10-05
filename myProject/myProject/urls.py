@@ -31,6 +31,7 @@ urlpatterns = [
     path('calculator/', views.calculator),
     path('evenodd/', views.evenodd),
     path('marksheet/', views.marksheet),
+    path('newsdetails/<newsid>', views.newsDetails),
     # path('course/', views.Courses),
     # path('course/<courseid>', views.courseDetails),
 ]

@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+
+
+
     <!-- Hero Section -->
     <section class="hero">
         <h2>Explore the World with Us!</h2>
@@ -10,6 +13,12 @@
         <button onclick="scrollToGallery()">See Our Adventures</button>
     </section> 
 
+    <!-- marquee -->
+    <marquee onmouseover="stop()" onmouseout="start()">
+        {% for news in newsData %}
+           <a href="/newsdetails/{{news.id}}"> {{news.news_title}} </a> &nbsp;&nbsp;&nbsp;
+        {% endfor %}
+    </marquee>
 
 
     <!-- About Section -->

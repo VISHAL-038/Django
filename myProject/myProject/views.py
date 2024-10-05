@@ -6,14 +6,24 @@ from .forms import userForms
 
 # model
 from service.models import Service
+from news.models import News
 
 def indexPage(request):
     servicesData = Service.objects.all()[:3] #negative index not supported
+    newsData=News.objects.all()
     print(servicesData)
     data = {
-         'servicesData': servicesData
+         'servicesData': servicesData,
+         'newsData':newsData
     }
     return render(request,'index.html',data)
+
+def newsDetails(request,newsid):
+     newsDetails = News.objects.get(id=newsid)
+     data = {
+          'newsDetails': newsDetails
+     }
+     return render(request,'newsDetails.html',data)
 
 # def homePage(request):
 #     data={
