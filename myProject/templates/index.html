@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block content %}
-<!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="hero">
         <h2>Explore the World with Us!</h2>
         <p>Join us for thrilling adventures, from hiking mountains to diving in deep oceans.</p>
         <br>
         <button onclick="scrollToGallery()">See Our Adventures</button>
-    </section>
+    </section> 
+
+
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -26,12 +28,14 @@
     <section class="services">
         <h2>Our Popular Services</h2>
         <div class="services-list">
+            {% for n in servicesData %}
             <div class="service-item">
-                <img src="/static/img/mountain-hike.webp" alt="Hiking">
-                <h3>Mountain Hiking</h3>
-                <p>Explore the highest peaks with expert guides.</p>
+                <img src="/static/img/{{n.service_photo}}" alt="{{n.service_title}}">
+                <h3>{{n.service_title}}</h3>
+                <p>{{n.service_des}}</p>
             </div>
-            <div class="service-item">
+            {% endfor %}
+            {% comment %} <div class="service-item">
                 <img src="/static/img/scuba-diving.jpg"
                 alt="scuba Diving">
                 <h3>Scuba Diving</h3>
@@ -41,7 +45,7 @@
                 <img src="/static/img/camping-trips.jpg" alt="Camping">
                 <h3>Camping Trips</h3>
                 <p>Reconnect with nature on our unique camping trips.</p>
-            </div>
+            </div> {% endcomment %}
         </div>
     </section>
 
@@ -70,5 +74,7 @@
     </section>
 
 </body>
+
 </html>
+
 {% endblock  %}

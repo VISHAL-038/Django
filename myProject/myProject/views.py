@@ -4,8 +4,16 @@ from django.shortcuts import render
 from .forms import userForms 
 # from .forms import <name of the function created in the page forms.py>
 
+# model
+from service.models import Service
+
 def indexPage(request):
-    return render(request,'index.html')
+    servicesData = Service.objects.all()[:3] #negative index not supported
+    print(servicesData)
+    data = {
+         'servicesData': servicesData
+    }
+    return render(request,'index.html',data)
 
 # def homePage(request):
 #     data={
@@ -32,7 +40,13 @@ def contact(request):
      return render(request,'contact.html')
 
 def services(request):
-     return render(request,'services.html')
+     # servicesData = Service.objects.all().order_by('service_title') assending order 
+     servicesData = Service.objects.all().order_by('-service_title') # desending order
+     print(servicesData)
+     data = {
+         'servicesData': servicesData
+     }
+     return render(request,'services.html',data)
 
 def book(request):
      return render(request,'book.html')
