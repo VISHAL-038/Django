@@ -8,6 +8,9 @@ from .forms import userForms
 from service.models import Service
 from news.models import News
 
+#pagination
+from django.core.paginator import Paginator
+
 def indexPage(request):
     servicesData = Service.objects.all()[:3] #negative index not supported
     newsData=News.objects.all()
@@ -18,8 +21,8 @@ def indexPage(request):
     }
     return render(request,'index.html',data)
 
-def newsDetails(request,newsid):
-     newsDetails = News.objects.get(id=newsid)
+def newsDetails(request,slug):
+     newsDetails = News.objects.get(news_slug=slug)
      data = {
           'newsDetails': newsDetails
      }
@@ -51,10 +54,20 @@ def contact(request):
 
 def services(request):
      # servicesData = Service.objects.all().order_by('service_title') assending order 
-     servicesData = Service.objects.all().order_by('-service_title') # desending order
+     # servicesData = Service.objects.all().order_by('-service_title')  desending order
+     servicesData = Service.objects.all()
+     # paginator
+     paginator = Paginator(servicesData,3)
+     page_number = request.GET.get('page')
+     servicesDataFinal = paginator.get_page(page_number)
+     if request.method=="GET":
+          st = request.GET.get('servicename')
+          if st!=None:
+               # servicesData = Service.objects.filter(service_title=st) have to write complete name 
+               servicesDataFinal = Service.objects.filter(service_title__icontains=st)  # this will work same as like keyword in database
      print(servicesData)
      data = {
-         'servicesData': servicesData
+         'servicesData': servicesDataFinal
      }
      return render(request,'services.html',data)
 

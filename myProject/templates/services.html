@@ -3,18 +3,50 @@
 {% block content %}
 
 
-    <section class="services">
-        <h2 >Explore Our Adventures</h2>
-        <div class="services-list">
-            {% for n in servicesData %}
-            <div class="service-item">
-                <img src="/static/img/{{n.service_photo}}" alt="{{n.service_title}}">
-                <h3>{{n.service_title}}</h3>
-                <p>{{n.service_des|safe|capfirst}}</p>
-            </div>
-            {% endfor %}
+<section class="services">
+    <h2>Explore Our Adventures</h2>
+    
+    <!-- Search Form -->
+    <form method="GET" action="/services" class="search-form">
+        <input type="text" name="servicename" placeholder="Search for adventures..." class="search-input">
+        <input type="submit" value="Search" class="search-button"/>
+    </form>
+    
+    <!-- Services List -->
+    <div class="services-list">
+        {% for n in servicesData %}
+        <div class="service-item">
+            <img src="/static/img/{{n.service_photo}}" alt="{{n.service_title}}">
+            <h3>{{n.service_title}}</h3>
+            <p>{{n.service_des|safe|capfirst}}</p>
         </div>
-    </section>
+        {% empty %}
+        <h3>No Data Found<h3>
+        {% endfor %}
+    </div>
+    <div style="align-item:center">
+        <nav aria-label="..." >
+            <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="/service/?page=1" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
 
 </body>
 </html>
