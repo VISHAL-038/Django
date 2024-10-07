@@ -7,6 +7,7 @@ from .forms import userForms
 # model
 from service.models import Service
 from news.models import News
+from contact.models import Contact
 
 #pagination
 from django.core.paginator import Paginator
@@ -49,8 +50,21 @@ def aboutUS(request):
           output = request.GET.get('output')
      return render(request,'aboutus.html',{'output':output})
 
+
 def contact(request):
+
      return render(request,'contact.html')
+
+def saveEnquiry(request):
+     n=''
+     if request.method=="POST":
+          name = request.POST.get('name')
+          email = request.POST.get('email')
+          msg = request.POST.get('message')
+          en=Contact(name=name,email=email,message=msg)
+          en.save()
+          n='Enquiry saved successfully'
+     return render(request,'contact.html',{'n':n})
 
 def services(request):
      # servicesData = Service.objects.all().order_by('service_title') assending order 

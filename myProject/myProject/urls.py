@@ -29,6 +29,7 @@ urlpatterns = [
     path('submitform/', views.submitform,name="submitform"),
     path('', views.indexPage),
     path('calculator/', views.calculator),
+    path('saveenquiry/', views.saveEnquiry,name='saveenquiry'),
     path('evenodd/', views.evenodd),
     path('marksheet/', views.marksheet),
     path('newsdetails/<slug>', views.newsDetails),
