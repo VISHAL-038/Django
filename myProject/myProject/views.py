@@ -57,17 +57,18 @@ def services(request):
      # servicesData = Service.objects.all().order_by('-service_title')  desending order
      servicesData = Service.objects.all()
      # paginator
-     paginator = Paginator(servicesData,3)
-     page_number = request.GET.get('page')
-     servicesDataFinal = paginator.get_page(page_number)
+     # paginator = Paginator(servicesData,3)
+     # page_number = request.GET.get('page')
+     # servicesDataFinal = paginator.get_page(page_number)
+     # page_obj = paginator.get_page(page_number)
      if request.method=="GET":
           st = request.GET.get('servicename')
           if st!=None:
                # servicesData = Service.objects.filter(service_title=st) have to write complete name 
-               servicesDataFinal = Service.objects.filter(service_title__icontains=st)  # this will work same as like keyword in database
+               servicesData = Service.objects.filter(service_title__icontains=st)  # this will work same as like keyword in database
      print(servicesData)
      data = {
-         'servicesData': servicesDataFinal
+         'servicesData': servicesData
      }
      return render(request,'services.html',data)
 
